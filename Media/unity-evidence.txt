@@ -1,0 +1,11 @@
+method=standalone main-camera RenderTexture; world only, no OnGUI HUD; injected world-space cast; opening dive skipped
+capturedAtUtc=2026-09-05T10:42:45.6465348Z
+shader=FishingV2/FishSurface;supported=True
+shader=FishingV2/FishShadow;supported=True
+shader=FishingV2/WaterSurface;supported=True
+shader=FishingV2/WaterRipple;supported=True
+shader=Universal Render Pipeline/Unlit;supported=True
+capture=gameplay;arrivals=0;respawns=0;fish=27
+capture=catch-flight;arrivals=0;respawns=1;fish=27
+capture=arrival;arrivals=1;respawns=1;fish=27
+errors=0;arrivals=1;tally=1;captureFiles=True;passed=True
