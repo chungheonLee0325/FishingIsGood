@@ -15,8 +15,6 @@
 | 브라우저에서 실행 | [HTML Prototype](https://chungheonlee0325.github.io/FishingIsGood/HTML/) |
 | HTML 움직임 영상 | [프리셋 비교와 찌 배치 웹 재생](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#html) |
 | Unity 플레이 영상 | [찌 배치부터 어획·수집까지 웹 재생](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#unity) |
-| Unity 원본 MP4 다운로드 | [1080p Unity 영상](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-Unity-gameplay.mp4) |
-| HTML 원본 MP4 다운로드 | [HTML 영상](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-HTML-comparison.mp4) |
 | HTML 파일 다운로드 | [HTML ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-HTML.zip) |
 | Windows x64 실행 파일 | [Windows ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-Windows-x64.zip) |
 | 릴리스 / 파일 검증값 | [v0.1.3](https://github.com/chungheonLee0325/FishingIsGood/releases/tag/v0.1.3) |
@@ -35,7 +33,7 @@ Windows 빌드에서도 `R`로 세션을 다시 시작하고 `T`로 시작 연�
 
 [![HTML 움직임 비교 미리보기](Media/html-comparison-preview.gif)](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#html)
 
-*미리보기를 누르면 Pages의 플레이어에서 전체 영상을 볼 수 있습니다. 원본 MP4는 위 릴리스 링크에서 다운로드할 수 있습니다.*
+*미리보기를 누르면 Pages의 플레이어에서 전체 영상을 볼 수 있습니다.*
 
 <details>
 <summary>물고기가 가방에 도착한 뒤 수량 표시</summary>
