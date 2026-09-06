@@ -21,7 +21,7 @@
 
 수면을 클릭하면 찌를 놓습니다. 물고기가 물면 잠시 뒤 자동으로 회수하며, 그 전에 클릭하면 바로 회수할 수 있습니다. Windows 빌드는 ZIP 전체를 풀고 `FishingIsGood.exe`를 실행하면 됩니다.
 
-Windows 빌드에서도 `R`로 세션을 다시 시작하고 `T`로 시작 연출을 건너뛸 수 있습니다. 물 프로파일을 강제로 바꾸는 `1~4`는 Editor 또는 Development Build에서만 동작하는 비교용 단축키입니다.
+Windows 빌드에서도 `R`로 세션을 다시 시작하고 `T`로 시작 연출을 건너뛸 수 있습니다.
 
 [![Unity에서 실행한 낚시 장면](Media/unity-gameplay-v013.png)](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#unity)
 
@@ -29,11 +29,10 @@ Windows 빌드에서도 `R`로 세션을 다시 시작하고 `T`로 시작 연�
 
 ## 영상
 
-[![Unity 플레이 영상 미리보기](Media/unity-gameplay-preview.gif)](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#unity)
+https://github.com/user-attachments/assets/206fbf14-7e2c-4b25-a181-e257144a7886
 
-[![HTML 움직임 비교 미리보기](Media/html-comparison-preview.gif)](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#html)
 
-*미리보기를 누르면 Pages의 플레이어에서 전체 영상을 볼 수 있습니다.*
+https://github.com/user-attachments/assets/f5f60c8c-f10d-4c5c-a6c3-0bddb1c82563
 
 <details>
 <summary>물고기가 가방에 도착한 뒤 수량 표시</summary>
