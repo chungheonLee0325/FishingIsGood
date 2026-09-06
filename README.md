@@ -21,9 +21,18 @@
 
 Windows 빌드에서도 `R`로 세션을 다시 시작하고 `T`로 시작 연출을 건너뛸 수 있습니다. 물 프로파일을 강제로 바꾸는 `1~4`는 Editor 또는 Development Build에서만 동작하는 비교용 단축키입니다.
 
-![Unity에서 실행한 낚시 장면](Media/unity-gameplay.png)
+![Unity에서 실행한 낚시 장면](Media/unity-gameplay-v013.png)
 
 *Windows 빌드의 월드 렌더링 캡처. 검증 도구로 찌를 배치한 장면입니다.*
+
+<details>
+<summary>물고기가 가방에 도착한 뒤 수량 표시</summary>
+
+![물고기 수집 후 HUD](Media/unity-arrival-v013.png)
+
+물고기가 낚시 가방에 도착하면 해당 어종의 `× 수량`과 점수가 함께 올라갑니다.
+
+</details>
 
 ## 제작 범위
 
