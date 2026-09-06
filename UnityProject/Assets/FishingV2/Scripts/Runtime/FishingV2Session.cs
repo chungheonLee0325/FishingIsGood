@@ -35,7 +35,7 @@ namespace Fishing.V2
         [Tooltip("애셋이 없을 때 쓰는 시간표. 애셋을 지정하면 이 값은 무시된다.")]
         public FishingV2DivePresentationTiming DivePresentationTiming = new FishingV2DivePresentationTiming();
         [Header("Debug")]
-        [Tooltip("재생 중 단축키: R 세션 재시작 · T 연출 건너뛰기 · 1/2/3 프로파일 고정 · 4 착수 재생")]
+        [Tooltip("재생 중 단축키: R 세션 재시작 · T 연출 건너뛰기 · 1/2/3 프로파일 고정 · 4 착수 재생. R/T는 Release에서도 동작하며, 1~4 프로파일 단축키는 Editor/Development Build에서만 동작한다.")]
         public bool EnableDebugHotkeys = true;
         [Header("Presentation assets")]
         [Tooltip("Replaceable organic substrate source sampled by WaterSurfaceV2. The prototype generator can recreate the local PNG.")]
@@ -494,30 +494,31 @@ namespace Fishing.V2
         /// 가장 큰 마찰이라, 재생 중에 세션을 다시 열 수 있어야 한다.
         ///
         /// 입력 잠금보다 먼저 불린다 — 잠긴 동안에도 건너뛸 수 있어야 하기 때문이다.
-        /// 에디터와 개발 빌드에서만 동작한다.
+        /// R/T는 공개 빌드에서도 재시작과 시작 연출 확인에 필요하므로 유지한다.
+        /// 수면 프로파일을 강제로 바꾸는 1~4는 개발용 비교 기능이라 에디터/개발 빌드에만 남긴다.
         /// </summary>
         private void HandleDebugHotkeys()
         {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
             if (!EnableDebugHotkeys)
             {
                 return;
             }
 
-            // R — 세션을 처음부터. 타이틀로 나가는 것에 가장 가까운 동작이다.
+            // R — 공개 빌드에서도 세션을 처음부터 다시 시작한다.
             if (Input.GetKeyDown(KeyCode.R))
             {
                 BeginSession();
                 return;
             }
 
-            // T — 연출 건너뛰고 바로 게임플레이로.
+            // T — 공개 빌드에서도 시작 연출을 건너뛰고 바로 게임플레이로 간다.
             if (Input.GetKeyDown(KeyCode.T))
             {
                 ForceGameplayWaterProfile();
                 return;
             }
 
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
             if (Input.GetKeyDown(KeyCode.Alpha1)) ForceGameplayWaterProfile();
             else if (Input.GetKeyDown(KeyCode.Alpha2)) ForcePresentationWaterProfile();
             else if (Input.GetKeyDown(KeyCode.Alpha3)) ForceDiveWaterProfile();
