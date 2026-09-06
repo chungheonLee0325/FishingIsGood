@@ -30,13 +30,11 @@ Windows 빌드에서도 `R`로 세션을 다시 시작하고 `T`로 시작 연�
 
 ## 영상
 
-<video controls preload="metadata" width="960" poster="https://chungheonlee0325.github.io/FishingIsGood/Media/unity-gameplay-v013.png">
-  <source src="https://chungheonlee0325.github.io/FishingIsGood/Media/unity-gameplay-preview.mp4" type="video/mp4">
-</video>
+[![Unity 플레이 영상 미리보기](Media/unity-gameplay-preview.gif)](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#unity)
 
-<video controls preload="metadata" width="960" poster="https://chungheonlee0325.github.io/FishingIsGood/Media/html-comparison-preview.png">
-  <source src="https://chungheonlee0325.github.io/FishingIsGood/Media/html-comparison-preview.mp4" type="video/mp4">
-</video>
+[![HTML 움직임 비교 미리보기](Media/html-comparison-preview.gif)](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#html)
+
+*미리보기를 누르면 Pages의 플레이어에서 전체 영상을 볼 수 있습니다. 원본 MP4는 위 릴리스 링크에서 다운로드할 수 있습니다.*
 
 <details>
 <summary>물고기가 가방에 도착한 뒤 수량 표시</summary>
