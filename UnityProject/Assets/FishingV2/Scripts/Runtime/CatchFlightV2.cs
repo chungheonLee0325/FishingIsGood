@@ -272,8 +272,8 @@ namespace Fishing.V2
             // 가방 입구 안에서 착지점만 조금 바꾼다. 여러 마리를 잡아도 같은 점에
             // 정확히 겹쳐 들어가는 기계적인 인상을 줄이되, 보상 목적지는 하나로 읽힌다.
             int slot = _bagSlotIndex++ % 3;
-            float x = pond.xMax - 0.65f + (slot - 1) * 0.11f;
-            float y = pond.yMin + 1.12f + (slot == 1 ? 0.04f : 0f);
+            float x = pond.xMax - 0.95f + (slot - 1) * 0.11f;
+            float y = pond.yMin + 0.92f + (slot == 1 ? 0.04f : 0f);
             return new Vector3(x, y, 0.68f);
         }
 

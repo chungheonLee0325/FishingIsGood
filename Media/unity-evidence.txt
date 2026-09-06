@@ -1,5 +1,5 @@
 method=standalone ScreenCapture; world plus OnGUI HUD; injected world-space cast; opening dive skipped
-capturedAtUtc=2026-09-06T13:26:34.6225946Z
+capturedAtUtc=2026-09-06T13:49:09.4512809Z
 shader=FishingV2/FishSurface;supported=True
 shader=FishingV2/FishShadow;supported=True
 shader=FishingV2/WaterSurface;supported=True

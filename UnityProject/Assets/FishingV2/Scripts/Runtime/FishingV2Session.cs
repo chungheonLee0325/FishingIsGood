@@ -40,6 +40,8 @@ namespace Fishing.V2
         [Header("Presentation assets")]
         [Tooltip("Replaceable organic substrate source sampled by WaterSurfaceV2. The prototype generator can recreate the local PNG.")]
         public Texture2D BottomSubstrateTexture;
+        [Tooltip("Optional in-world catch bag image. When empty, the runtime uses the primitive prototype bag.")]
+        public Texture2D CatchBagTexture;
 
         private readonly List<FishAgentV2> _fish = new List<FishAgentV2>();
         private readonly List<RespawnEntry> _respawns = new List<RespawnEntry>();
@@ -946,7 +948,16 @@ namespace Fishing.V2
             SetMaterialColor(_basketMaterial, new Color(0.25f, 0.14f, 0.06f, 1f));
             _catchBagBodyMaterial = CreateMaterial(FindShader("Universal Render Pipeline/Unlit", "Unlit/Color", "Standard"));
             ConfigureTransparentLineMaterial(_catchBagBodyMaterial);
-            SetMaterialColor(_catchBagBodyMaterial, new Color(0.58f, 0.38f, 0.15f, 1f));
+            if (CatchBagTexture != null)
+            {
+                if (_catchBagBodyMaterial.HasProperty("_BaseMap")) _catchBagBodyMaterial.SetTexture("_BaseMap", CatchBagTexture);
+                if (_catchBagBodyMaterial.HasProperty("_MainTex")) _catchBagBodyMaterial.SetTexture("_MainTex", CatchBagTexture);
+                SetMaterialColor(_catchBagBodyMaterial, Color.white);
+            }
+            else
+            {
+                SetMaterialColor(_catchBagBodyMaterial, new Color(0.58f, 0.38f, 0.15f, 1f));
+            }
             ConfigureWaterMaterial(_waterMaterial, _presentation);
             ConfigureWaterMaterial(_underwaterBottomMaterial, _presentation);
             ConfigureFishMaterial(_fishMaterial, _presentation);
@@ -1511,7 +1522,9 @@ namespace Fishing.V2
             {
                 float bagAlpha = Mathf.Clamp01(_waterPresentation.HudAlpha);
                 SetMaterialColor(_basketMaterial, new Color(0.25f, 0.14f, 0.06f, bagAlpha));
-                SetMaterialColor(_catchBagBodyMaterial, new Color(0.58f, 0.38f, 0.15f, bagAlpha));
+                SetMaterialColor(_catchBagBodyMaterial, CatchBagTexture != null
+                    ? new Color(1f, 1f, 1f, bagAlpha)
+                    : new Color(0.58f, 0.38f, 0.15f, bagAlpha));
                 if (_catchBagRoot != null) _catchBagRoot.SetActive(bagAlpha > 0.01f);
             }
 
@@ -1809,7 +1822,13 @@ namespace Fishing.V2
         {
             _catchBagRoot = new GameObject("FishingCatchBag");
             _catchBagRoot.transform.SetParent(transform, false);
-            _catchBagRoot.transform.position = new Vector3(_pond.xMax - 0.65f, _pond.yMin + 0.72f, 0.12f);
+            _catchBagRoot.transform.position = new Vector3(_pond.xMax - 0.95f, _pond.yMin + 0.72f, 0.12f);
+
+            if (CatchBagTexture != null)
+            {
+                CreateTexturedCatchBag();
+                return;
+            }
 
             _catchBagMesh = new Mesh { name = "FishingCatchBag_Body" };
             _catchBagMesh.vertices = new[]
@@ -1849,6 +1868,36 @@ namespace Fishing.V2
                     0.42f + Mathf.Sin(t * Mathf.PI) * 0.42f,
                     0.04f));
             }
+        }
+
+        private void CreateTexturedCatchBag()
+        {
+            float aspect = CatchBagTexture.width / (float)Mathf.Max(1, CatchBagTexture.height);
+            float halfHeight = 0.78f;
+            float halfWidth = halfHeight * aspect;
+            _catchBagMesh = new Mesh { name = "FishingCatchBag_Image" };
+            _catchBagMesh.vertices = new[]
+            {
+                new Vector3(-halfWidth, -halfHeight, 0f),
+                new Vector3(halfWidth, -halfHeight, 0f),
+                new Vector3(halfWidth, halfHeight, 0f),
+                new Vector3(-halfWidth, halfHeight, 0f)
+            };
+            _catchBagMesh.uv = new[]
+            {
+                new Vector2(0f, 0f),
+                new Vector2(1f, 0f),
+                new Vector2(1f, 1f),
+                new Vector2(0f, 1f)
+            };
+            _catchBagMesh.triangles = new[] { 0, 1, 2, 0, 2, 3 };
+            _catchBagMesh.RecalculateNormals();
+            _catchBagMesh.RecalculateBounds();
+
+            GameObject image = new GameObject("BagImage");
+            image.transform.SetParent(_catchBagRoot.transform, false);
+            image.AddComponent<MeshFilter>().sharedMesh = _catchBagMesh;
+            image.AddComponent<MeshRenderer>().sharedMaterial = _catchBagBodyMaterial;
         }
 
         private void CreateBagBlock(string name, Vector3 localPosition, Vector3 localScale, Material material)
@@ -2080,7 +2129,9 @@ namespace Fishing.V2
                 if (icon != null)
                 {
                     GUI.color = Fade(Color.white, hud);
-                    GUI.DrawTexture(new Rect(x + 5f * scale, rowY + 3f * scale, 54f * scale, 30f * scale), icon, ScaleMode.ScaleToFit, true);
+                    // 제공된 아이콘은 정사각형 캔버스 안에 가로형 물고기가 들어 있다.
+                    // 슬롯도 가로로 채워 실제 실루엣이 수량보다 먼저 읽히게 한다.
+                    GUI.DrawTexture(new Rect(x + 2f * scale, rowY + 2f * scale, 60f * scale, 34f * scale), icon, ScaleMode.StretchToFill, true);
                 }
 
                 int count = _caught.TryGetValue(speciesId, out int value) ? value : 0;
