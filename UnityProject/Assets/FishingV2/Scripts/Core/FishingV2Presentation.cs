@@ -239,7 +239,7 @@ namespace Fishing.V2
                 ShadowMaxScale = 1.12f,
                 ShadowSoftness = 0.34f,
                 CompactHud = true,
-                ShowSpeciesCounters = false
+                ShowSpeciesCounters = true
             };
         }
     }

@@ -71,19 +71,19 @@ AI에게 움직임이 어색하다는 피드백을 주고 구현을 바꿔 가�
 
 ## Unity에서 연결한 것들
 
-HTML에서 다듬던 이동과 먹이 반응을 Unity에서도 이어서 구현했습니다. 물고기의 상태와 어종 데이터를 나누고, 찌의 입질·회수와 물고기가 바구니로 날아가는 흐름을 연결했습니다. Unity에서 제작한 물 표현과 카메라 연출은 이 플레이 흐름에 맞춰 동작합니다.
+HTML에서 다듬던 이동과 먹이 반응을 Unity에서도 이어서 구현했습니다. 물고기의 상태와 어종 데이터를 나누고, 찌의 입질·회수와 물고기가 낚시 가방으로 날아가는 흐름을 연결했습니다. Unity에서 제작한 물 표현과 카메라 연출은 이 플레이 흐름에 맞춰 동작합니다.
 
 | 살펴볼 부분 | 소스 |
 |---|---|
 | 이동, 무리, 회피, 먹이 경쟁 | [FishAgentV2.cs](UnityProject/Assets/FishingV2/Scripts/Runtime/FishAgentV2.cs) |
 | 찌 배치, 어획 집계, 리스폰 | [FishingV2Session.cs](UnityProject/Assets/FishingV2/Scripts/Runtime/FishingV2Session.cs) |
 | 어종별 행동 데이터 | [FishingV2Types.cs](UnityProject/Assets/FishingV2/Scripts/Core/FishingV2Types.cs) |
-| 바구니까지의 회수 비행 | [CatchFlightV2.cs](UnityProject/Assets/FishingV2/Scripts/Runtime/CatchFlightV2.cs) |
+| 낚시 가방까지의 회수 비행 | [CatchFlightV2.cs](UnityProject/Assets/FishingV2/Scripts/Runtime/CatchFlightV2.cs) |
 | 어종별 메시 생성 | [FishMeshBuilderV2.cs](UnityProject/Assets/FishingV2/Scripts/Core/FishMeshBuilderV2.cs) |
 | 수면 광학, 파문, 렌즈 물방울 | [WaterSurfaceV2.shader](UnityProject/Assets/FishingV2/Shaders/WaterSurfaceV2.shader) |
 | 수면 진입과 프로파일 전환 | [FishingV2WaterPresentationDirector.cs](UnityProject/Assets/FishingV2/Scripts/Runtime/FishingV2WaterPresentationDirector.cs) |
 
-어획은 물고기를 채는 순간이 아니라 바구니에 도착할 때 집계합니다. 이 과정에서 도착 횟수와 집계가 맞는지, 잡힌 물고기가 한 마리씩 다시 생성되는지, 상태가 바뀔 때 위치가 크게 튀지 않는지를 별도로 확인했습니다.
+어획은 물고기를 채는 순간이 아니라 낚시 가방에 도착할 때 집계합니다. 이 과정에서 도착 횟수와 집계가 맞는지, 잡힌 물고기가 한 마리씩 다시 생성되는지, 상태가 바뀔 때 위치가 크게 튀지 않는지를 별도로 확인했습니다.
 
 기본 플레이 어종은 멸치·연어·만새기·오징어·참치 5종입니다. 추가 어종은 동작 검증에 사용합니다. AI는 개발 과정에 사용했으며, 게임 안의 물고기 행동은 규칙 기반으로 동작합니다.
 

@@ -12,6 +12,7 @@ namespace Fishing.V2
     {
         private string _output;
         private int _errors;
+        private bool _captureHud;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Bootstrap()
@@ -19,9 +20,11 @@ namespace Fishing.V2
             string[] args = Environment.GetCommandLineArgs();
             for (int i = 0; i + 1 < args.Length; i++)
             {
-                if (args[i] != "--fishing-evidence") continue;
+                if (args[i] != "--fishing-evidence" && args[i] != "--fishing-ui-evidence") continue;
                 var host = new GameObject("FishingBuildEvidence");
-                host.AddComponent<FishingBuildEvidence>()._output = Path.GetFullPath(args[i + 1]);
+                FishingBuildEvidence evidence = host.AddComponent<FishingBuildEvidence>();
+                evidence._output = Path.GetFullPath(args[i + 1]);
+                evidence._captureHud = args[i] == "--fishing-ui-evidence";
                 break;
             }
         }
@@ -36,7 +39,10 @@ namespace Fishing.V2
             Application.logMessageReceived += CountErrors;
             Application.runInBackground = true;
             Directory.CreateDirectory(_output);
-            var lines = new List<string> { "method=standalone main-camera RenderTexture; world only, no OnGUI HUD; injected world-space cast; opening dive skipped", "capturedAtUtc=" + DateTime.UtcNow.ToString("O") };
+            string method = _captureHud
+                ? "method=standalone ScreenCapture; world plus OnGUI HUD; injected world-space cast; opening dive skipped"
+                : "method=standalone main-camera RenderTexture; world only, no OnGUI HUD; injected world-space cast; opening dive skipped";
+            var lines = new List<string> { method, "capturedAtUtc=" + DateTime.UtcNow.ToString("O") };
             foreach (string name in new[] { "FishingV2/FishSurface", "FishingV2/FishShadow", "FishingV2/WaterSurface", "FishingV2/WaterRipple", "Universal Render Pipeline/Unlit" })
             {
                 Shader shader = Shader.Find(name);
@@ -61,7 +67,9 @@ namespace Fishing.V2
                 else if (!arrival && session.CatchFlightArrivals > 0) { arrival = true; label = "arrival"; }
                 if (label != null)
                 {
-                    if (!CaptureCamera(Path.Combine(_output, label + ".png"))) _errors++;
+                    string capturePath = Path.Combine(_output, label + ".png");
+                    if (_captureHud) ScreenCapture.CaptureScreenshot(capturePath);
+                    else if (!CaptureCamera(capturePath)) _errors++;
                     lines.Add("capture=" + label + ";arrivals=" + session.CatchFlightArrivals + ";respawns=" + session.RespawnsSpawned + ";fish=" + session.Fish.Count);
                 }
                 if (overview && flight && arrival) break;

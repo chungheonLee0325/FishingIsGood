@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Fishing.V2
 {
     /// <summary>
-    /// 물고기를 수면에서 끌어올려 바구니 슬롯으로 보내는 보상 연출.
+    /// 물고기를 수면에서 끌어올려 낚시 가방으로 보내는 보상 연출.
     /// 집계 콜백은 비행이 끝나는 시점에 호출한다.
     /// </summary>
     public sealed class CatchFlightV2 : MonoBehaviour
@@ -39,7 +39,7 @@ namespace Fishing.V2
         private Material _flightMaterial;
         private Material _shadowMaterial;
         private FishingV2PresentationSettings _presentation;
-        private int _basketIndex;
+        private int _bagSlotIndex;
 
         public int ActiveFlightCount { get { return _flights.Count; } }
 
@@ -269,12 +269,12 @@ namespace Fishing.V2
 
         public Vector3 NextBasketTarget(Rect pond)
         {
-            // 첫 슬라이스에서는 별도 UI 캔버스 없이 수면 안쪽 오른쪽에 바구니 슬롯을 둔다.
-            // 카메라 밖으로 날려버리면 획득 연출이 실제로 보상처럼 읽히지 않는다.
-            float x = pond.xMax - 0.55f;
-            float y = pond.yMin + 0.55f + (_basketIndex % 5) * 0.72f;
-            _basketIndex++;
-            return new Vector3(x, y, 0.65f);
+            // 가방 입구 안에서 착지점만 조금 바꾼다. 여러 마리를 잡아도 같은 점에
+            // 정확히 겹쳐 들어가는 기계적인 인상을 줄이되, 보상 목적지는 하나로 읽힌다.
+            int slot = _bagSlotIndex++ % 3;
+            float x = pond.xMax - 0.65f + (slot - 1) * 0.11f;
+            float y = pond.yMin + 1.12f + (slot == 1 ? 0.04f : 0f);
+            return new Vector3(x, y, 0.68f);
         }
 
         private static float SmoothStep(float value)
