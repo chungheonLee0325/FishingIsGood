@@ -13,9 +13,9 @@
 | | 링크 |
 |---|---|
 | 브라우저에서 실행 | [HTML Prototype](https://chungheonlee0325.github.io/FishingIsGood/HTML/) |
-| HTML 파일 다운로드 | [HTML ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.2/FishingIsGood-HTML.zip) |
-| Windows x64 실행 파일 | [Windows ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.2/FishingIsGood-Windows-x64.zip) |
-| 릴리스 / 파일 검증값 | [v0.1.2](https://github.com/chungheonLee0325/FishingIsGood/releases/tag/v0.1.2) |
+| HTML 파일 다운로드 | [HTML ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-HTML.zip) |
+| Windows x64 실행 파일 | [Windows ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-Windows-x64.zip) |
+| 릴리스 / 파일 검증값 | [v0.1.3](https://github.com/chungheonLee0325/FishingIsGood/releases/tag/v0.1.3) |
 
 수면을 클릭하면 찌를 놓습니다. 물고기가 물면 잠시 뒤 자동으로 회수하며, 그 전에 클릭하면 바로 회수할 수 있습니다. Windows 빌드는 ZIP 전체를 풀고 `FishingIsGood.exe`를 실행하면 됩니다.
 

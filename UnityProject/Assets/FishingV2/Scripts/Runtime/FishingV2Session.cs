@@ -2130,8 +2130,18 @@ namespace Fishing.V2
                 {
                     GUI.color = Fade(Color.white, hud);
                     // 제공된 아이콘은 정사각형 캔버스 안에 가로형 물고기가 들어 있다.
-                    // 슬롯도 가로로 채워 실제 실루엣이 수량보다 먼저 읽히게 한다.
-                    GUI.DrawTexture(new Rect(x + 2f * scale, rowY + 2f * scale, 60f * scale, 34f * scale), icon, ScaleMode.StretchToFill, true);
+                    // 슬롯 크기는 유지하고 초상만 어종별 인지 크기로 조절한다. 참치가 상한이며,
+                    // 멸치는 확실히 작게 보여도 수량과 이름의 정렬은 흔들리지 않는다.
+                    float portraitScale = Mathf.Clamp(species.HudIconScale, 0.45f, 1f);
+                    float portraitWidth = 60f * portraitScale * scale;
+                    float portraitHeight = 34f * portraitScale * scale;
+                    float portraitX = x + (64f * scale - portraitWidth) * 0.5f;
+                    float portraitY = rowY + (36f * scale - portraitHeight) * 0.5f;
+                    GUI.DrawTexture(
+                        new Rect(portraitX, portraitY, portraitWidth, portraitHeight),
+                        icon,
+                        ScaleMode.StretchToFill,
+                        true);
                 }
 
                 int count = _caught.TryGetValue(speciesId, out int value) ? value : 0;

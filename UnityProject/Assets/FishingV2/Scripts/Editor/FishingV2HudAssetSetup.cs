@@ -23,6 +23,14 @@ namespace Fishing.V2.EditorTools
                 { "squid", ArtRoot + "Hud_Squid.png" },
                 { "tuna", ArtRoot + "Hud_Tuna.png" }
             };
+            Dictionary<string, float> iconScales = new Dictionary<string, float>
+            {
+                { "anchovy", 0.58f },
+                { "salmon", 0.78f },
+                { "mahi", 0.86f },
+                { "squid", 0.82f },
+                { "tuna", 1.00f }
+            };
 
             foreach (KeyValuePair<string, string> entry in icons)
             {
@@ -37,6 +45,7 @@ namespace Fishing.V2.EditorTools
                 }
 
                 species.Data.HudIcon = icon;
+                species.Data.HudIconScale = iconScales[entry.Key];
                 EditorUtility.SetDirty(species);
             }
 

@@ -369,6 +369,9 @@ namespace Fishing.V2
         [Header("Presentation")]
         [Tooltip("Optional HUD portrait. When empty, the runtime builds a small portrait from the species visual data.")]
         public Texture2D HudIcon;
+        [Range(0.45f, 1f)]
+        [Tooltip("Relative portrait size inside the fixed HUD slot. Tuna uses 1.0 as the visual ceiling.")]
+        public float HudIconScale = 1f;
         // Normalized distance below the surface. A negative range means that legacy data
         // should fall back to a stable zone-derived depth in FishAgentV2.
         public FloatRange VisualDepth = new FloatRange(-1f, -1f);
