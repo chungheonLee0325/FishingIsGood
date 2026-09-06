@@ -15,7 +15,8 @@
 | 브라우저에서 실행 | [HTML Prototype](https://chungheonlee0325.github.io/FishingIsGood/HTML/) |
 | HTML 움직임 영상 | [프리셋 비교와 찌 배치 웹 재생](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#html) |
 | Unity 플레이 영상 | [찌 배치부터 어획·수집까지 웹 재생](https://chungheonlee0325.github.io/FishingIsGood/Media/videos.html#unity) |
-| 원본 MP4 다운로드 | [릴리스 영상 파일](https://github.com/chungheonLee0325/FishingIsGood/releases/tag/v0.1.3) |
+| Unity 원본 MP4 다운로드 | [1080p Unity 영상](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-Unity-gameplay.mp4) |
+| HTML 원본 MP4 다운로드 | [HTML 영상](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-HTML-comparison.mp4) |
 | HTML 파일 다운로드 | [HTML ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-HTML.zip) |
 | Windows x64 실행 파일 | [Windows ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-Windows-x64.zip) |
 | 릴리스 / 파일 검증값 | [v0.1.3](https://github.com/chungheonLee0325/FishingIsGood/releases/tag/v0.1.3) |
