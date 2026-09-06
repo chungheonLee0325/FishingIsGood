@@ -3,8 +3,7 @@
   "rootNamespace": "Fishing.V2.EditorTools",
   "references": [
     "FishingV2",
-    "Unity.RenderPipelines.Universal.Runtime",
-    "Unity.Recorder.Editor"
+    "Unity.RenderPipelines.Universal.Runtime"
   ],
   "includePlatforms": [
     "Editor"
