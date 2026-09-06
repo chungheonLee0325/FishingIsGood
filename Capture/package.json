@@ -1,0 +1,11 @@
+{
+  "name": "fishing-is-good-capture",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "html": "node capture-html-demo.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

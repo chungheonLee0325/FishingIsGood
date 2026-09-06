@@ -13,6 +13,8 @@
 | | 링크 |
 |---|---|
 | 브라우저에서 실행 | [HTML Prototype](https://chungheonlee0325.github.io/FishingIsGood/HTML/) |
+| HTML 움직임 비교 영상 | [프리셋 비교와 찌 배치](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-HTML-comparison.mp4) |
+| Unity 플레이 영상 | [찌 배치부터 어획·수집까지](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-Unity-gameplay.mp4) |
 | HTML 파일 다운로드 | [HTML ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-HTML.zip) |
 | Windows x64 실행 파일 | [Windows ZIP](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-Windows-x64.zip) |
 | 릴리스 / 파일 검증값 | [v0.1.3](https://github.com/chungheonLee0325/FishingIsGood/releases/tag/v0.1.3) |
@@ -21,9 +23,9 @@
 
 Windows 빌드에서도 `R`로 세션을 다시 시작하고 `T`로 시작 연출을 건너뛸 수 있습니다. 물 프로파일을 강제로 바꾸는 `1~4`는 Editor 또는 Development Build에서만 동작하는 비교용 단축키입니다.
 
-![Unity에서 실행한 낚시 장면](Media/unity-gameplay-v013.png)
+[![Unity에서 실행한 낚시 장면](Media/unity-gameplay-v013.png)](https://github.com/chungheonLee0325/FishingIsGood/releases/download/v0.1.3/FishingIsGood-Unity-gameplay.mp4)
 
-*Windows 빌드의 월드 렌더링 캡처. 검증 도구로 찌를 배치한 장면입니다.*
+*이미지를 누르면 Unity 플레이 영상을 볼 수 있습니다.*
 
 <details>
 <summary>물고기가 가방에 도착한 뒤 수량 표시</summary>
@@ -136,8 +138,6 @@ $unityEditor = 'D:/Unity/6000.3.23f1/Editor/Unity.exe'
 ```
 
 </details>
-
-HTML 움직임 비교와 HTML → Unity 비교 영상은 촬영 후 추가할 예정입니다.
 
 ## 공개 범위
 

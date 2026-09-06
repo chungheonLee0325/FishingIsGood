@@ -10,6 +10,7 @@ UnityProject/Assets/Screenshots.meta
 UnityProject/Assets/Resources/PerformanceTestRun*.json*
 Builds/
 .validation/
+Capture/node_modules/
 /*.log
 *.csproj
 *.sln
