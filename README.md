@@ -28,6 +28,16 @@ Windows 빌드에서도 `R`로 세션을 다시 시작하고 `T`로 시작 연�
 
 *이미지를 누르면 Unity 플레이 영상을 웹에서 볼 수 있습니다.*
 
+## 영상
+
+<video controls preload="metadata" width="960" poster="https://chungheonlee0325.github.io/FishingIsGood/Media/unity-gameplay-v013.png">
+  <source src="https://chungheonlee0325.github.io/FishingIsGood/Media/unity-gameplay-preview.mp4" type="video/mp4">
+</video>
+
+<video controls preload="metadata" width="960" poster="https://chungheonlee0325.github.io/FishingIsGood/Media/html-comparison-preview.png">
+  <source src="https://chungheonlee0325.github.io/FishingIsGood/Media/html-comparison-preview.mp4" type="video/mp4">
+</video>
+
 <details>
 <summary>물고기가 가방에 도착한 뒤 수량 표시</summary>
 
